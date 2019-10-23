@@ -1,0 +1,32 @@
+body {
+    background-color: bisque;
+    margin: 0;
+}
+
+.writeDown {
+    
+}
+
+.write1 {
+    text-align: center;
+}
+
+.write2 {
+    text-align: center;
+}
+
+
+.showMe .single{
+    margin-left: 50px;
+}
+
+.showMe .single h5{
+    margin-left: 30px;
+}
+
+.showMe .single pre{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
