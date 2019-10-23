@@ -3,18 +3,17 @@ body {
     margin: 0;
 }
 
-.writeDown {
-    
+.blogWhole {
+    /* display: flex; */
 }
 
-.write1 {
+.showMe {
+    margin-right: -20px;
+}
+
+.showMe h2{
     text-align: center;
 }
-
-.write2 {
-    text-align: center;
-}
-
 
 .showMe .single{
     margin-left: 50px;

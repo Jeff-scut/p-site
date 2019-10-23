@@ -1,0 +1,21 @@
+.navright {
+    position: fixed;
+    right: 2%;
+    top: 35%;
+    /* max-width: 200px; */
+    border: 1px solid salmon;
+}
+
+.navright li{
+    list-style: decimal-leading-zero;
+    cursor: pointer;
+}
+
+.navright li a{
+    text-decoration-line: none;
+    color: black;
+}
+
+.navright li a:hover{
+    color: blue;
+}

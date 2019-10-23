@@ -1,0 +1,23 @@
+.navup{
+    width: auto;
+    height: 20px;
+    margin-right: 30px;
+    float: right;
+}
+
+.navup li:hover{
+    color: cornflowerblue;
+    cursor: pointer;
+}
+
+.navup::after{
+    clear: both;
+}
+
+.navup ul,.navup li{
+    display: inline;
+}
+
+.navup ul li{
+    list-style-type: none;
+}
