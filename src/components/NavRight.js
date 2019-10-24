@@ -15,8 +15,9 @@ class NavRight extends React.Component{
                         if(items.type==this.props.showType){
                             return(
                                 <li key={key} >
-                                    <a>《{items.title}》</a>
-                                    {/* <a href={`#/blog/#${items.title}`}>《{items.title}》</a> */}
+                                    <a onClick={()=>{this.run2(`${items.title}`)}}>《{items.title}》</a>
+                                    {/* <a onClick={this.runForestRun(`${items.title}`)}>《{items.title}》</a> 第二种写法 */}
+                                    {/* <a href={`#/blog/#${items.title}`}>《{items.title}》</a> 这是最开始的写法 */}
                                 </li>
                             )
                         }
@@ -25,6 +26,15 @@ class NavRight extends React.Component{
             </div>
         )
     }
+
+    run2(name){
+        document.getElementById(name).scrollIntoView();
+    }
+
+    runForestRun=(name)=>{
+        document.getElementById(name).scrollIntoView();
+    }
+
 }
 
 export default NavRight;
