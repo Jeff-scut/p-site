@@ -37,9 +37,13 @@ class Blog extends Component{
                         if(item.type==`${this.state.showType}`){
                             return(
                                 <div key={key} className="single" id={item.title}>
-                                    <h4>《{item.title}》</h4>
-                                    <h5>by {item.author} on {item.create_time}</h5>
-                                    <pre>{item.content}</pre>
+                                    <h4>《{item.title}》</h4>                                    
+                                    <h5>created by {item.author} on {item.create_time}</h5>
+                                    <pre>
+                                        {item.content}
+                                        <span className="edit"></span>[编辑]
+                                        <span className="delete"></span>[删除]
+                                    </pre>
                                 </div>
                                 )
                         }})}

@@ -29,3 +29,45 @@ body {
     font-family: 'Times New Roman', Times, serif;
     font-size: 15px;
 }
+
+.showMe .delete{
+    position: relative;
+    margin-left: 30px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-right: 12px;
+}
+
+.showMe .delete::before{
+    content: '';
+    width: inherit;
+    border-top: 1px solid red;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.showMe .delete::after{
+    content: '';
+    width: inherit;
+    border-top: 1px solid red;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.showMe .edit{
+    display: inline-block;
+    cursor: pointer;
+    border-width: 15px 0 15px 15px;
+    border-style: solid;
+    border-color: transparent transparent mediumslateblue;
+    margin-left: 30px;
+    margin-right: 5px;
+    vertical-align: text-bottom;
+}
+
+
