@@ -9,9 +9,6 @@ class CreateDiary extends React.Component {
         super(props);
 
         this.state={
-            ModalText: 'Content of the modal',
-            // visible: "hidden",
-            confirmLoading: false,
             disp:"none",
             title:"",
             content:"",
@@ -21,7 +18,6 @@ class CreateDiary extends React.Component {
 
     showModal = () => {
         this.setState({
-            // visible: "visible",
             disp:"flex"
         });
     };
@@ -35,7 +31,6 @@ class CreateDiary extends React.Component {
     render() {
         const styleString={
             motai:{
-                // visibility:(this.state.visible),
                 display:(this.state.disp),
                 position:"fixed",
             }
@@ -45,9 +40,9 @@ class CreateDiary extends React.Component {
             <input type="button" onClick={this.showModal}  value="发布新文章"/>
             <div className="motai" style={styleString.motai} >
                 <input id="closeBut" type="button" onClick={this.closeModal} value="关闭"></input>
-                <div className="write1"><strong>标题:</strong><input onChange={event=>this.setState({title:event.target.value})}></input></div>
-                <div className="write3"><strong>类型:</strong><input onChange={event=>this.setState({type:event.target.value})}></input></div>
-                <div className="write2"><strong>内容:</strong><textarea onChange={event=>this.setState({content:event.target.value})}></textarea></div>
+                <div className="write1"><strong>标题:</strong><input onChange={event=>this.setState({title:event.target.value})} required /></div>
+                <div className="write3"><strong>类型:</strong><input onChange={event=>this.setState({type:event.target.value})} required /></div>
+                <div className="write2"><strong>内容:</strong><textarea onChange={event=>this.setState({content:event.target.value})} required /></div>
                 <input id="submit" type="button" value="保存" onClick={()=>this.postBlog('http://47.98.251.172:8080/plus')}/>
             </div>
         </div>
@@ -68,6 +63,7 @@ class CreateDiary extends React.Component {
             url:url,
             data:formdata
         })
+        .then(alert('发表成功，页面即将自动刷新~'))
         .catch((Error)=>{console.log(Error)})
         window.location.href=('http://47.98.251.172')
     }

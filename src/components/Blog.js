@@ -11,7 +11,11 @@ class Blog extends Component{
 
         this.state={
             diaries:[],
-            showType:"心情日记"
+            showType:"心情日记",
+            shouldDisplay:false,
+            targetID:"",
+            newContent:"",
+            title:""
         };
 
         axios({
@@ -41,13 +45,20 @@ class Blog extends Component{
                                     <h5>created by {item.author} on {item.create_time}</h5>
                                     <pre>
                                         {item.content}
-                                        <span className="edit"></span>[编辑]
-                                        <span className="delete"></span>[删除]
+                                        <span className="edit" onClick={()=>this.setState({shouldDisplay:true,targetID:`${item.id}`,title:`${item.title}`}) }></span>[编辑]
+                                        <span className="delete" onClick={()=>this.deleteText(`${item.id}`,'http://47.98.251.172:8080/deletetext')}></span>[删除]
                                     </pre>
                                 </div>
                                 )
                         }})}
                 </div>
+                { this.state.shouldDisplay && 
+                <div className="updWhole">
+                    待修改文章标题：{this.state.title}
+                    <input type="button" value="关闭" onClick={()=>this.setState({shouldDisplay:false})} />
+                    <textarea onChange={e=>{this.setState({newContent:e.target.value})}} required/>
+                    <input type="button" value="发送" onClick={()=>this.sendUpdate()} />
+                </div>}
             </div>
         );
     }
@@ -56,6 +67,32 @@ class Blog extends Component{
         this.setState({
             showType:state
         })
+    }
+
+    deleteText(id,url){
+        var data=new FormData();
+        data.append('targetID',id)
+        axios({
+            method:'POST',
+            url:url,
+            data:data
+        })
+        .then(
+            alert('删除成功')
+        )
+    }
+
+    sendUpdate(){
+        var data=new FormData();
+        data.append('targetID',`${this.state.targetID}`)
+        data.append('content',`${this.state.newContent}`)
+        axios({
+            method:'POST',
+            url:"http://47.98.251.172:8080/updatetext",
+            data: data
+        })
+        .then(alert('更新完成'))
+        window.location.href=('http://47.98.251.172')
     }
 
 

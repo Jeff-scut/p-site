@@ -70,4 +70,38 @@ body {
     vertical-align: text-bottom;
 }
 
+.updWhole {
+    display: flex;
+    border: 1px solid black;
+    background-color: #ffec8b;
+    opacity: 0.7;
+    width: 60%;
+    height: 60%;
+    left: 15%;
+    top: 25%;
+    flex-direction: column;
+    position: fixed;
+    align-items: center;
+}
 
+.updWhole textarea{
+    width: 90%;
+    height: 90%;
+    min-height: 150px;
+    margin-top: 10px;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.updWhole input:nth-child(1) {
+    align-self: flex-end;
+    margin-top: -17px;
+    margin-right: 5px;
+}
+
+.updWhole input:nth-child(3) {
+    width: 130px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
